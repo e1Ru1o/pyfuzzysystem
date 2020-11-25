@@ -9,4 +9,4 @@ class Gamma(Membership):
             if x < m: return (x-a)/(m-a)
             return 1
 
-        super().__init__(gamma)
+        super().__init__(gamma, [a, m])

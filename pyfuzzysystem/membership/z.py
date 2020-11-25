@@ -12,4 +12,4 @@ class Z(Membership):
                 return 2 * ((c-x)/(c-a)) ** 2
             return 0
 
-        super().__init__(z)
+        super().__init__(z, [a, (a + c) / 2, c])

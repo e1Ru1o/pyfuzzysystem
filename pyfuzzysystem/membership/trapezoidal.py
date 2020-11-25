@@ -10,4 +10,4 @@ class Trapezoidal(Membership):
             if x < b: return (x-a)/(b-a)
             return (d-x)/(d-c)
 
-        super().__init__(trapezoidal)
+        super().__init__(trapezoidal, [a, b, c, d])

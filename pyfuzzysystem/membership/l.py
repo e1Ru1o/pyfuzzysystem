@@ -9,4 +9,4 @@ class L(Membership):
             if x < m: return (m-x)/(x-a)
             return 0
 
-        super().__init__(l)
+        super().__init__(l, [a, m])

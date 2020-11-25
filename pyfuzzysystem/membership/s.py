@@ -12,4 +12,4 @@ class S(Membership):
                 return 1 - 2 * ((c-x)/(c-a)) ** 2
             return 1
 
-        super().__init__(s)
+        super().__init__(s, [a, (a + c) / 2, c])

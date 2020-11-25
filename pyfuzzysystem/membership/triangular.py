@@ -9,4 +9,4 @@ class Triangular(Membership):
             if x <= m: return (x-a)/(m-a)
             return (b-x)/(b-m)
 
-        super().__init__(triangular)
+        super().__init__(triangular, [a, m, b])

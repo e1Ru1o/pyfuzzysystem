@@ -11,4 +11,4 @@ class Gaussian(Membership):
             if x <= b: return s(x)
             return z(x)
 
-        super().__init__(gaussian)
+        super().__init__(gaussian, [b - d, b, b + d])
