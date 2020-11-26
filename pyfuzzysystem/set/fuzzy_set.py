@@ -17,3 +17,12 @@ class FuzzySet:
         membership = lambda x: self.agregation(self.membership(x), other.membership(x))
         return FuzzySet(name, Membership(f), self.agregation)
     
+    def domain(self, *domain_args):
+        return self.membership.domain(*domain_args)
+
+    def __iter__(self):
+        return iter(self.membership)
+
+    def __str__(self):
+        return self.name
+        
