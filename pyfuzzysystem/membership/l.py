@@ -6,7 +6,7 @@ class L(Membership):
 
         def l(x):
             if x <= a: return 1
-            if x < m: return (m-x)/(x-a)
+            if x < m: return (m-x)/(m-a)
             return 0
 
         super().__init__(l, [a, m])

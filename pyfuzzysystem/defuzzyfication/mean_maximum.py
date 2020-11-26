@@ -10,4 +10,4 @@ def mean_maximum(fuzzy_set):
             top, values = value, []
         if value == top:
             values.append(x)
-    return sum(value) / len(value)
+    return sum(values) / len(values)

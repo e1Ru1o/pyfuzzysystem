@@ -1,5 +1,3 @@
-from collections import defaultdict
-
 class InferenceSystem:
     '''
     Class for represent fuzzy 
@@ -17,12 +15,14 @@ class InferenceSystem:
         self.defuzzify = defuzzify
     
     def infer(self, input):
-        output = self.rules[0](input)
-        for rule in self.rules[1:]:
+        output = {}
+        for rule in self.rules:
             for key, set in rule(input).items():
-                output[key] += set
-        return {key:self.defuzzify(set) for key, set in output}
+                try: output[key] += set
+                except KeyError: output[key] = set
+        return {key:self.defuzzify(set) for key, set in output.items()}
 
     def __add__(self, linguistic):
         self.add_rule(self.rule_class(linguistic))
+        return self
     

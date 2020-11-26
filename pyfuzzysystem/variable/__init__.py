@@ -1,1 +1,1 @@
-from .fuzzy_var import FuzzySet
+from .fuzzy_var import FuzzyVariable

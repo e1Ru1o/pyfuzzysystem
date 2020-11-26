@@ -13,12 +13,14 @@ class FuzzySet:
         if not isinstance(other, FuzzySet):
             raise TypeError(f"unsupported operand type(s) for +: 'FuzzySet' and '{other.__class__.__name__}'")
 
-        name       = f"{self.name}_U_{other.name}"
-        membership = lambda x: self.aggregation(self.membership(x), other.membership(x))
-        return FuzzySet(name, Membership(f), self.aggregation)
+        name     = f"({self.name}_U_{other.name})"
+        function = lambda x: self.aggregation(self.membership(x), other.membership(x))
+        points   = self.membership.points + other.membership.points
+        points.sort()
+        return FuzzySet(name, Membership(function, points), self.aggregation)
     
-    def domain(self, *domain_args):
-        return self.membership.domain(*domain_args)
+    def domain(self, **domain_args):
+        return self.membership.domain(**domain_args)
 
     def __iter__(self):
         return iter(self.membership)

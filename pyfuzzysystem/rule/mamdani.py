@@ -6,5 +6,5 @@ class MamdaniRule(Rule):
     def aggregate(self, set, value):
         f = lambda x: min(set.membership(x), value)
         membership = Membership(f, set.membership.points)
-        return FuzzySet(f'scaled_{set.name}', membership, set.aggregation)
+        return FuzzySet(f'truncated_{set}', membership, set.aggregation)
         

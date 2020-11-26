@@ -7,7 +7,7 @@ def bisection(fuzzy_set):
     values = [fuzzy_set.membership(domain[0])]
 
     for x in domain[1:]:
-        values.append(fuzzy_set.membership(value) + sums[-1])
+        values.append(fuzzy_set.membership(x) + values[-1])
     for i, x in enumerate(domain):
         if values[i] >= values[-1] / 2:
             return x   
