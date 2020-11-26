@@ -1,4 +1,5 @@
 from ..set import FuzzySet
+from .formal import FuzzyFormal
 
 class FuzzyVariable:
     '''
@@ -17,9 +18,13 @@ class FuzzyVariable:
         return self
 
     def __getitem__(self, key):
+        '''
+        Return a fuzzy formal representing 
+        the variable set named key
+        '''
         if key not in self.sets:
             raise KeyError(f"Set `{key}` not found in Var `{self.name}`")
-        return self.sets[key]
+        return FuzzyFormal(self.name, self.sets[key])
 
     def __str__(self):
         return self.name
