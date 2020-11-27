@@ -26,3 +26,6 @@ class InferenceSystem:
         self.add_rule(self.rule_class(linguistic))
         return self
     
+    def __str__(self):
+        rules = '\n'.join(str(r) for r in self.rules)
+        return f"Rules:\n{rules}"
