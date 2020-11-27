@@ -1,11 +1,19 @@
+from ..variable import LinguisticStatement, LinguisticVar
+
 class Rule:
     '''
     Class for represent fuzzy 
     inference systems rules
     '''
     def __init__(self, linguistic, aggregate=None):
-        self.linguistic = linguistic
+
+        if not isinstance(linguistic, LinguisticStatement):
+            raise TypeError(f"`{linguistic.__class__.__name__} is not a valid LinguisticStatement")
+        if not all(isinstance(x, LinguisticVar) for x in linguistic):
+            raise TypeError('Malformed LinguisticStatement. Antecedent and consequences must be of type LinguisticVar')
+
         antecedent, *consequences = linguistic
+        self.linguistic = linguistic
         self.consequences = consequences
         self.antecedent   = antecedent
         self.aggregation(aggregate)

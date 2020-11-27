@@ -15,15 +15,21 @@ class LinguisticVar:
         return self
 
     def __and__(self, other):
+        if not isinstance(other, LinguisticVar):
+            raise ValueError(f'Unsoported operand (+) for LinguisticVar and `{other.__class__.__name__}`')
         return AndLinguisticVar(self, other, self.union, self.intersection)
 
     def __or__(self, other):
+        if not isinstance(other, LinguisticVar):
+            raise ValueError(f'Unsoported operand (+) for LinguisticVar and `{other.__class__.__name__}`')
         return OrLinguisticVar(self, other, self.union, self.intersection)
 
     def __invert__(self):
         return NotLinguisticVar(self, self.union, self.intersection)
 
     def __rshift__(self, other):
+        if not isinstance(other, LinguisticStatement):
+            raise ValueError(f'Unsoported operand (>>) for LinguisticVar and `{other.__class__.__name__}`')
         return LinguisticStatement(self, other.consequences)
 
     def __pos__(self):
@@ -39,6 +45,8 @@ class LinguisticStatement:
         self.consequences = consequences
     
     def __add__(self, other):
+        if not isinstance(other, LinguisticStatement):
+            raise ValueError(f'Unsoported operand (+) for LinguisticStatement and `{other.__class__.__name__}`')
         self.consequences.append(other)
         return self
 
