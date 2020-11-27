@@ -1,7 +1,7 @@
 # pyfuzzysystem
 Implementation of a fuzzy inference system
 
-## Requirements
+## Requirements 📋
 This project was developed using `python3.7.4`.
 
 To install the `python` dependencies use:
@@ -9,7 +9,7 @@ To install the `python` dependencies use:
 make install
 ```
 
-## Usage
+## Usage ⚙️
 To create fuzzy variables use:
 ```python
 my_var = FuzzyVariable('my_var')\
@@ -38,3 +38,15 @@ input = {'my_var':8, 'second_var':1.5}
 output = system.infer(input)
 print(output)
 ```
+
+## Autores ✒️
+
+- **Lazaro Raul** - [stdevRulo](https://github.com/stdevRulo)
+
+## Licencia 📄
+
+This project is under the License (MIT License) - see the file [LICENSE.md](LICENSE.md) for details.
+
+## More
+
+For details about the implementation read the [doc](doc/Informe.pdf)
