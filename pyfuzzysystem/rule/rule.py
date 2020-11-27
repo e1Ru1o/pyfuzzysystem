@@ -3,14 +3,15 @@ class Rule:
     Class for represent fuzzy 
     inference systems rules
     '''
-    def __init__(self, linguistic):
+    def __init__(self, linguistic, aggregate=None):
         self.linguistic = linguistic
         antecedent, *consequences = linguistic
         self.consequences = consequences
         self.antecedent   = antecedent
+        self.aggregation(aggregate)
 
-    def aggregate(self, set, value):
-        raise NotImplementedError()
+    def aggregation(self, aggregate):
+        self.aggregate = aggregate
 
     def __call__(self, input):
         value = self.antecedent(input)
